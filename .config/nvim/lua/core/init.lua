@@ -24,7 +24,7 @@ autocmd('TextYankPost', {
 
 autocmd({"BufWritePre"}, {
     group = ThePrimeagenGroup,
-    pattern = "*",
+    pattern =   "*",
     command = [[%s/\s\+$//e]],
 })
 
