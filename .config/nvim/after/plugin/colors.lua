@@ -11,4 +11,6 @@ function ColorMyPencils(color)
 
 end
 
-ColorMyPencils()
+-- ColorMyPencils()
+-- color tokyonight theme at end of nvim
+vim.cmd("colorscheme tokyonight")

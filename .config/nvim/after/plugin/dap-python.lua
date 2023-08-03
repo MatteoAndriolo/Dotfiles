@@ -1,0 +1,5 @@
+vim.keymap.set("n", "<leader>dr", "<cmd>lua require('dap-python').test_method()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>dn", "<cmd>lua require('dap-python').test_nearest()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>dc", "<cmd>lua require('dap').continue()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>do", "<cmd>lua require('dap').step_over()<CR>", { noremap = true, silent = true })
