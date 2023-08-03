@@ -2,18 +2,20 @@ bindsym $mod+Shift+w mode "$mode_sites"
 set $mode_sites (c)hatGPT, (e)xit, (w)hatsapp, (t)elegram, (s)potify, (g)ithub, (o)nenote -- Shift for new window
 mode "$mode_sites" {
     bindsym c exec --no-startup-id "$chrome $chatgpt"   , mode "default"
+    bindsym g exec --no-startup-id "$browser $github" , mode "default"
+    bindsym m exec --no-startup-id "$browser $moodle" , mode "default"
+    bindsym o exec --no-startup-id "$browser $onenote" , mode "default"
+    bindsym s exec --no-startup-id "$browser $spotify" , mode "default"
     bindsym t exec --no-startup-id "$browser $telegram" , mode "default"
     bindsym w exec --no-startup-id "$browser $whatsapp" , mode "default"
-    bindsym s exec --no-startup-id "$browser $spotify" , mode "default"
-    bindsym g exec --no-startup-id "$browser $github" , mode "default"
-    bindsym o exec --no-startup-id "$browser $onenote" , mode "default"
-	
+
     bindsym Shift+c exec --no-startup-id "$chrome $chatgpt"   , mode "default"
+    bindsym Shift+g exec --no-startup-id "$browser --new-window $github" , mode "default"
+    bindsym Shift+m exec --no-startup-id "$browser --new-window $moodle" , mode "default"
+    bindsym Shift+o exec --no-startup-id "$browser --new-window $onenote" , mode "default"
+    bindsym Shift+s exec --no-startup-id "$browser --new-window $spotify" , mode "default"
     bindsym Shift+t exec --no-startup-id "$browser --new-window $telegram" , mode "default"
     bindsym Shift+w exec --no-startup-id "$browser --new-window $whatsapp" , mode "default"
-    bindsym Shift+s exec --no-startup-id "$browser --new-window $spotify" , mode "default"
-    bindsym Shift+g exec --no-startup-id "$browser --new-window $github" , mode "default"
-    bindsym Shift+o exec --no-startup-id "$browser --new-window $onenote" , mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"

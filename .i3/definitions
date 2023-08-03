@@ -5,7 +5,7 @@ set $chrome google-chrome-stable
 set $terminal terminator
 set $obsidian obsidian
 set $filemanager pcmanfm
-set $screenshots flameshot 
+set $screenshots flameshot
 set $soundmanager pavucontrol-qt
 
 
@@ -14,6 +14,7 @@ set $chatgpt https://chat.openai.com/
 set $whatsapp https://web.whatsapp.com/
 set $telegram https://web.telegram.org/k/
 set $spotify https://open.spotify.com/
+set $moodle https://stem.elearning.unipd.it/
 set $github https://github.com
 set $onenote https://www.onenote.com/notebooks?auth=2&nf=1
 
@@ -22,7 +23,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+F1 exec $code-ide
 bindsym $mod+F2 exec $browser
 bindsym $mod+F3 exec $filemanager
-bindsym $mod+F8 exec $obsidian 
+bindsym $mod+F8 exec $obsidian
 bindsym $mod+C exec --no-startup-id "$chrome $chatgpt"
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
