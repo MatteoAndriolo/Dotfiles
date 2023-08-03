@@ -10,4 +10,5 @@ source ~/.profile
 
 alias camera='vlc v4l2://:input-slave=alsa://:v4l-vdev="/dev/video0"'
 alias nconf="cd $HOME/.config/nvim; nvim ."
+alias tconf="cd $HOME/.config/tmux; nvim ."
 alias config='/usr/bin/git --git-dir=/home/matteo/.cfg/ --work-tree=/home/matteo'
