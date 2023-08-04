@@ -19,7 +19,8 @@ set $github https://github.com
 set $onenote https://www.onenote.com/notebooks?auth=2&nf=1
 
 # Start Applications
-bindsym $mod+Return exec $terminal
+bindsym $mod+Return exec $terminal -e tmux
+bindsym $mod+Shift+Return exec $terminal
 bindsym $mod+F1 exec $code-ide
 bindsym $mod+F2 exec $browser
 bindsym $mod+F3 exec $filemanager
