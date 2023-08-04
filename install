@@ -1,10 +1,17 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
-pushd $DOTFILES
-for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
-do
-    echo "stow $folder"
-    stow -D $folder
-    stow $folder
+dotfiles_dir="$HOME/.dotfiles"
+install_dir="$HOME"
+
+# Iterate over each file in the dotfiles directory
+find "$dotfiles_dir" -type f | while read file; do
+    # Get the path to the file relative to the dotfiles directory
+    relative_path="${file#$dotfiles_dir/}"
+
+    # Create the directory structure in the home directory, if it doesn't exist
+    mkdir -p "$HOME/$(dirname "$relative_path")"
+
+    # Create the symbolic link
+    # ln -s "$file" "$HOME/$relative_path"
+    cp "$file" "$HOME/$relative_path"
 done
-popd
