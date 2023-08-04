@@ -13,7 +13,7 @@ require("nvim-tree").setup({
     --auto_resize = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
     custom = { ".git", "node_modules", ".cache", ".gitignore"},
   }
 })
