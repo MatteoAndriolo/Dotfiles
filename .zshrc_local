@@ -14,3 +14,5 @@ alias tconf="cd $HOME/.config/tmux; nvim ."
 alias config="/usr/bin/git --git-dir=/home/matteo/.cfg/ --work-tree=/home/matteo"
 alias vim="nvim"
 alias ts= "~/.local/bin/tmux-sessionizer"
+
+bindkey -s ^f "tmux-sessionizer\n"
