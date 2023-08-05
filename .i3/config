@@ -95,9 +95,9 @@ bindsym $mod+q split toggle
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking;exec notify-send 'stacking'
+bindsym $mod+w layout tabbed;exec notify-send 'tabbed'
+bindsym $mod+e layout toggle split;exec notify-send 'toggle split'
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -106,7 +106,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+# bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -121,10 +121,10 @@ bindsym $mod+minus scratchpad show
 include ~/.i3/workspace_layouts
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c reload; exec notify-send 'reload'
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart; exec notify-send 'restart'
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -132,14 +132,12 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 include ~/.i3/mode_systems
 
-
 # Lock screen
 bindsym $mod+F12 exec --no-startup-id blurlock
 
 # Autostart applications ###################################################################àà
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -152,50 +150,4 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
-
-# Color palette used for the terminal ( ~/.Xresources file ) ####################################
-# Colors are gathered based on the documentation:
-# https://i3wm.org/docs/userguide.html#xresources
-# Change the variable name at the place you want to match the color
-# of your terminal like this:
-# [example]
-# If you want your bar to have the same background color as your 
-# terminal background change the line 362 from:
-# background #14191D
-# to:
-# background $term_background
-# Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
-
-include ~/.i3/status_bar
-
-
-# Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
-
-  client.background       #2B2C2B
-
-
-include ~/.i3/gaps
+include ~/.i3/colors
