@@ -1,13 +1,9 @@
-#alias paru="paru --bottomup"
-alias valgrind_full="valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all"
--
-# /opt/ibm/ILOG/CPLEX_Studio2211/cplex/bin/x86-64_linux
-path+=("/opt/ibm/ILOG/CPLEX_Studio2211/cplex/bin/x86-64_linux")
-path+=("/opt/miniconda3/condabin/")
-# export to sub-processes (make it inherited by child processes)
-export PATH
+################################################################################
+# PATHS
+################################################################################
 source ~/.profile
 
+alias valgrind_full="valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all"
 alias camera="vlc v4l2://:input-slave=alsa://:v4l-vdev='/dev/video0'"
 alias nconf="cd $HOME/.config/nvim; nvim ."
 alias tconf="cd $HOME/.config/tmux; nvim ."
@@ -16,3 +12,5 @@ alias vim="nvim"
 alias ts= "~/.local/bin/tmux-sessionizer"
 
 bindkey -s ^f "tmux-sessionizer\n"
+
+
