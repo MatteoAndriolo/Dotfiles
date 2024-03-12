@@ -1,10 +1,9 @@
 # Define applications
 set $code-ide code
-set $browser firefox
-set $chrome google-chrome-stable
+set $browser brave
 set $terminal terminator
 set $obsidian obsidian
-set $filemanager pcmanfm
+set $filemanager thunar
 set $screenshots flameshot
 set $soundmanager pavucontrol-qt
 
@@ -17,6 +16,7 @@ set $spotify https://open.spotify.com/
 set $moodle https://stem.elearning.unipd.it/
 set $github https://github.com
 set $onenote https://www.onenote.com/notebooks?auth=2&nf=1
+set $keep https://keep.google.com/u/0/
 
 # Start Applications
 bindsym $mod+Return exec $terminal -e tmux
@@ -25,7 +25,7 @@ bindsym $mod+F1 exec $code-ide
 bindsym $mod+F2 exec $browser
 bindsym $mod+F3 exec $filemanager
 bindsym $mod+F8 exec $obsidian
-bindsym $mod+C exec --no-startup-id "$chrome $chatgpt"
+bindsym $mod+C exec --no-startup-id "$browser $chatgpt"
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
@@ -35,6 +35,100 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id $screenshots
 bindsym $mod+Shift+s --release exec --no-startup-id $screenshots gui
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 bindsym $mod+p exec --no-startup-id $soundmanager
+
+
+# Mode systems
+
+bindsym $mod+Shift+w mode "$mode_sites"
+set $mode_sites (c)hatGPT, (e)xit, (w)hatsapp, (t)elegram, (s)potify, (g)ithub, (o)nenote, (k)eep -- Shift for new window
+mode "$mode_sites" {
+    bindsym c exec --no-startup-id "$browser $chatgpt" , mode "default"
+    bindsym g exec --no-startup-id "$browser $github" , mode "default"
+    bindsym m exec --no-startup-id "$browser $moodle" , mode "default"
+    bindsym o exec --no-startup-id "$browser $onenote" , mode "default"
+    bindsym s exec --no-startup-id "$browser $spotify" , mode "default"
+    bindsym t exec --no-startup-id "$browser $telegram" , mode "default"
+    bindsym w exec --no-startup-id "$browser $whatsapp" , mode "default"
+    bindsym k exec --no-startup-id "$browser $keep" , mode "default"
+
+    bindsym Shift+c exec --no-startup-id "$browser $chatgpt"   , mode "default"
+    bindsym Shift+g exec --no-startup-id "$browser --new-window $github" , mode "default"
+    bindsym Shift+m exec --no-startup-id "$browser --new-window $moodle" , mode "default"
+    bindsym Shift+o exec --no-startup-id "$browser --new-window $onenote" , mode "default"
+    bindsym Shift+s exec --no-startup-id "$browser --new-window $spotify" , mode "default"
+    bindsym Shift+t exec --no-startup-id "$browser --new-window $telegram" , mode "default"
+    bindsym Shift+w exec --no-startup-id "$browser --new-window $whatsapp" , mode "default"
+    bindsym Shift+k exec --no-startup-id "$browser --new-window $keep" , mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+# Set shut down, restart and locking features
+bindsym $mod+0 mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym ò resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # exit resize mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+$alt+w mode $mode_output
+set $mode_output "(n)ormal, (r)ight, (l)eft, "
+mode $mode_output {
+  bindsym n exec --no-startup-id xrandr --output eDP-1 --rotate normal, mode "default"
+  bindsym r exec --no-startup-id xrandr --output eDP-1 --rotate right, mode "default"
+  bindsym l exec --no-startup-id xrandr --output eDP-1 --rotate left, mode "default"
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+p mode $mode_project
+set $mode_project "(s)ame as, (l)eft, (r)ight, (R)eset"
+mode $mode_project {
+  bindsym s exec --no-startup-id xrandr --output HDMI-1 --mode 1920x1080 --same-as eDP-1, mode "default"
+  bindsym l exec --no-startup-id xrandr --output HDMI-1 --mode 1920x1080 --left-of eDP-1, mode "default"
+  bindsym r exec --no-startup-id xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1, mode "default"
+  bindsym Shift+r exec --no-startup-id xrandr --output HDMI-1 --off --output eDP-1 --auto, mode "default"
+
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}

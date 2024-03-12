@@ -34,7 +34,7 @@ vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>")
 -- UTILS
 --------------------------------------------------------------------------------
 -- open explorer
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)vim.cmd
 -- because netrw is disabled Ex does not works
 -- replaced by this command inside nvim-tree
 -- vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")

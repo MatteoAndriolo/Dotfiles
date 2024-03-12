@@ -3,6 +3,9 @@
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+set $alt Mod1
+set $ctrl Control
+
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -130,7 +133,6 @@ bindsym $mod+Shift+r restart; exec notify-send 'restart'
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
-include ~/.i3/mode_systems
 
 # Lock screen
 bindsym $mod+F12 exec --no-startup-id blurlock

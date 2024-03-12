@@ -9,8 +9,21 @@ alias nconf="cd $HOME/.config/nvim; nvim ."
 alias tconf="cd $HOME/.config/tmux; nvim ."
 alias config="/usr/bin/git --git-dir=/home/matteo/.cfg/ --work-tree=/home/matteo"
 alias vim="nvim"
-alias ts= "~/.local/bin/tmux-sessionizer"
+alias ts="~/.local/bin/tmux-sessionizer"
 
 bindkey -s ^f "tmux-sessionizer\n"
 
+alias kn="cd ~/Scrivania/NewKnowledge"
+alias knj="cd ~/Scrivania/NewKnowledge/Journal"
 
+alias bcs="bluetoothctl scan on"
+alias bcss="bluetoothctl scan off"
+alias bcm="bluetoothctl connect 00:00:AB:D0:24:2A"
+alias bcmd="bluetoothctl remove 00:00:AB:D0:24:2A"
+alias bcmm="bluetoothctl disconnect 00:00:AB:D0:24:2A"
+alias windows="/run/media/matteo/B87E10D97E10926C/Users/matteo"
+alias zls="zoxide query -l -s | less"
+
+eval "$(zoxide init zsh)"
+
+alias dockerdesktop="systemctl --user start docker-desktop"
